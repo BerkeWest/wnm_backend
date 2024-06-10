@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accounts",
+  "info": {
+    "singularName": "account",
+    "pluralName": "accounts",
+    "displayName": "account"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "accountMail": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 30,
+      "minLength": 8
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "minLength": 8,
+      "private": true
+    },
+    "profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile",
+      "mappedBy": "account"
+    }
+  }
+}
